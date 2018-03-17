@@ -11,13 +11,13 @@
             <span *ngIf="post.originalUid != post.uid" (click)="gotoUser(post.originalUid)">{{post.originalUserName}}'s post </span> 
           </span>
         </h2>
-        <p>{{post.createdAt | formatDate}}</p>
+        <p class="post-date">{{post.createdAt | formatDate}}</p>
         <button color="secondary" ion-button clear item-end icon-only color="dark" *ngIf="currentUid == post.uid" (click)="deletePost(post)">
             <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-divider>
   <div *ngIf="post.content?.type == 'text'">
-    <div class="post-content" [ngStyle]="{'background': post.content?.color}" (click)="showPostDetail(post)">
+    <div class="post-content" (click)="showPostDetail(post)">
       <p class="text">{{post.content?.text}}</p>
     </div>
   </div>

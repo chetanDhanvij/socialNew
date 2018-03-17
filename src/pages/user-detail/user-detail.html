@@ -5,7 +5,7 @@
           Support
         </button>
         <button ion-button (click)="gotoProfile()">
-          Edit
+          My Profile
         </button>
       </ion-buttons>
   </ion-navbar>
@@ -20,6 +20,7 @@
     <!-- <p>{{user?.fullName}}</p> -->
     <ion-item-divider sticky no-lines>
         {{user?.fullName}}
+        <p *ngIf="user?.subcaste">{{user?.subcaste}}</p>
     </ion-item-divider>
     <ion-item *ngIf="user?.education">
       <ion-icon color="secondary" name="md-briefcase" item-start></ion-icon>
@@ -38,9 +39,6 @@
       <ion-icon color="secondary" *ngIf="user?.gender == 'FEMALE'"name="female" item-start></ion-icon>
       <ion-icon color="secondary" *ngIf="user?.gender == 'OTHER'"name="md-person" item-start></ion-icon>
       {{user?.gender}}
-    </ion-item>
-    <ion-item *ngIf="user?.subcaste">
-      <ion-label color="secondary" item-start> Subcaste: {{user?.subcaste}} </ion-label>
     </ion-item>
     <ion-item *ngIf="user?.city">
       <ion-icon color="secondary" name="md-map" item-start></ion-icon>

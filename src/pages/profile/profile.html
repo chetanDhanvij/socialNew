@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>Profile</ion-title>
+    <ion-buttons end *ngIf="userID == user?.key">
+      <button ion-button  (click)="logOut()">
+        Logout
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -15,9 +20,14 @@
     <button ion-button clear item-end (click)="updateName()">Edit</button>
   </ion-item>
   <ion-item>
-    <h2>Education</h2>
-    <p> {{userProfile?.education}} </p>
-    <button ion-button clear item-end (click)="updateEducation()">Edit</button>
+    <ion-label>What are you doing? (Optional)</ion-label>
+    <ion-select  [(ngModel)]="education"  (ionChange)="updateEducation(education)">
+      <ion-option value="Student">Student</ion-option>
+      <ion-option value="Service">Service</ion-option>
+      <ion-option value="Business">Business</ion-option>
+      <ion-option value="Retired">Retired</ion-option>
+      <ion-option value="No Work">No Work</ion-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <h2>Email</h2>
@@ -35,16 +45,18 @@
   </ion-item>
   <ion-item>
     <ion-label>Gender</ion-label>
-    <ion-select [(ngModel)]="gender">
+    <ion-select [(ngModel)]="gender" (ionChange)="updateGender(gender)">
       <ion-option value="MALE">Male</ion-option>
       <ion-option value="FEMALE">Female</ion-option>
       <ion-option value="OTHER">Other</ion-option>
     </ion-select>
   </ion-item>
   <ion-item>
-    <h2>Subcaste</h2>
-    <p> {{userProfile?.subcaste}} </p>
-    <button ion-button clear item-end (click)="updateSubcaste()">Edit</button>
+    <ion-label>What are you?</ion-label>
+    <ion-select [(ngModel)]="subcaste" (ionChange)="updateSubcaste(subcaste)">
+      <ion-option value="Sevak">Sevak</ion-option>
+      <ion-option value="Margdarshak">Margdarshak</ion-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <h2>City</h2>
@@ -53,5 +65,5 @@
   </ion-item>
 
   <button full clear ion-button (click)="updatePassword()">Change Password</button>
-  <button full clear ion-button (click)="logOut()">Logout</button>
+  <!-- <button full clear ion-button (click)="logOut()">Logout</button> -->
 </ion-content>

@@ -18,11 +18,21 @@ page-feed {
         h1{
             display: inline;
             font-weight: 900;
-            color: color($colors,secondary) !important;
+            color: color($colors,danger) !important;
             position: relative;
             top: -12px;
             font-style: inherit;
             // font-family: cursive;
         }
+    }
+
+    .post-tap{
+        width: 100%;
+        border-radius: 25px;
+        background: #dedede;
+        padding: 20px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+
     }
 }

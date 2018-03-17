@@ -18,7 +18,9 @@ page-user-detail {
             ion-label{
                 color: color($colors,light) !important;
             }
-
+            p{
+                color: color($colors,light) !important;
+            }
             background: color($colors,primary);
         }
     }

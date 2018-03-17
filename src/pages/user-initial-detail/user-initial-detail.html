@@ -42,17 +42,22 @@
         <span *ngIf="!userForm.controls.dob.valid
           && userForm.controls.dob.touched">Select a valid date</span>
       </p>
-
-      <ion-item background-transparent>
-        <ion-label floating>Education / Work (Optional)</ion-label>
-        <ion-input formControlName="education" type="text" [class.invalid]="!userForm.controls.education.valid && blur">
-        </ion-input>
+      <ion-item  background-transparent class="text-white">
+        <ion-label>What are you doing? (Optional)</ion-label>
+        <ion-select formControlName="education">
+          <ion-option value="Student">Student</ion-option>
+          <ion-option value="Service">Service</ion-option>
+          <ion-option value="Business">Business</ion-option>
+          <ion-option value="Retired">Retired</ion-option>
+          <ion-option value="No Work">No Work</ion-option>
+        </ion-select>
       </ion-item>
-
-      <ion-item background-transparent>
-        <ion-label floating>Subcaste (Optional)</ion-label>
-        <ion-input formControlName="subcaste" type="text" [class.invalid]="!userForm.controls.subcaste.valid && blur">
-        </ion-input>
+      <ion-item  background-transparent class="text-white">
+        <ion-label>What are you? (Optional)</ion-label>
+        <ion-select formControlName="subcaste">
+          <ion-option value="Sevak">Sevak</ion-option>
+          <ion-option value="Margdarshak">Margdarshak</ion-option>
+        </ion-select>
       </ion-item>
 
       <ion-item background-transparent>
@@ -62,7 +67,7 @@
       </ion-item>
 
       <ion-item background-transparent>
-        <ion-label floating>City (Optional)</ion-label>
+        <ion-label floating>State - City/Village (Optional)</ion-label>
         <ion-input formControlName="city" type="text" [class.invalid]="!userForm.controls.city.valid && blur">
         </ion-input>
       </ion-item>

@@ -19,6 +19,9 @@ export class ProfilePage {
   public profileImgURL: string;
   private loading: Loading;
   public gender: string;
+  public subcaste: string;
+  public education: string;
+  
 
   constructor(
     public navCtrl: NavController,
@@ -37,6 +40,8 @@ export class ProfilePage {
       this.dob = userProfileSnapshot.val().dob;
       this.profileImgURL = userProfileSnapshot.val().profileImgURL; 
       this.gender = userProfileSnapshot.val().gender; 
+      this.subcaste = userProfileSnapshot.val().subcaste;
+      this.education = userProfileSnapshot.val().education;
       console.log( "this.userProfile", this.userProfile);
       try{
         this.loading.dismiss();
@@ -81,27 +86,7 @@ export class ProfilePage {
     alert.present();
   }
 
-  updateEducation(): void {
-    const alert: Alert = this.alertCtrl.create({
-      inputs: [
-        {
-          name: 'education',
-          placeholder: 'Education',
-          value: this.userProfile.education
-        }
-      ],
-      buttons: [
-        { text: 'Cancel' },
-        {
-          text: 'Save',
-          handler: data => {
-            this.profileProvider.updateEducation(data.education);
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+
 
   updateMobile(): void {
     const alert: Alert = this.alertCtrl.create({
@@ -126,27 +111,6 @@ export class ProfilePage {
     alert.present();
   }
 
-  updateSubcaste(): void {
-    const alert: Alert = this.alertCtrl.create({
-      inputs: [
-        {
-          name: 'subcaste',
-          placeholder: 'Subcaste',
-          value: this.userProfile.subcaste
-        }
-      ],
-      buttons: [
-        { text: 'Cancel' },
-        {
-          text: 'Save',
-          handler: data => {
-            this.profileProvider.updateSubcaste(data.subcaste);
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
 
   updateCity(): void {
     const alert: Alert = this.alertCtrl.create({
@@ -172,6 +136,15 @@ export class ProfilePage {
 
   updateDOB(dob: string): void {
     this.profileProvider.updateDOB(dob);
+  }
+  updateGender(gender: string): void {
+    this.profileProvider.updateGender(gender);
+  }
+  updateSubcaste(subcaste): void {
+    this.profileProvider.updateSubcaste(subcaste);
+  }
+  updateEducation(education): void {
+    this.profileProvider.updateEducation(education);
   }
 
   updateEmail(): void {

@@ -67,6 +67,7 @@ export class ImageSelectorProvider {
         buttons: [
           {
             text: 'Take a Picture',
+            icon: 'camera',
             handler: () => {
               console.log('Take a Picture clicked');
               this.takeImg(true).then((img)=>{
@@ -75,6 +76,7 @@ export class ImageSelectorProvider {
             }
           }, {
             text: 'Open Gallery',
+            icon: 'image',
             handler: () => {
               console.log('Open Gallery clicked');
               this.takeImg(false).then((img)=>{

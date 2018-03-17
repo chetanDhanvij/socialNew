@@ -27,6 +27,7 @@ export class FeedPage {
   loading: Loading;
   userLikedPost: any[] = [];
   currentUid: string;
+  currentUserPic: string;
   @ViewChild(Content) content: Content;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -64,11 +65,14 @@ export class FeedPage {
 
     console.log("this.profileProvider.getCurrentUser()",this.profileProvider.getCurrentUser())
     this.currentUid = this.profileProvider.getCurrentUser();
+    this.profileProvider.getUserProfile().child('profileImgURL').once('value', userProfileSnapshot => {
+      console.log( userProfileSnapshot.val());
+      this.currentUserPic = userProfileSnapshot.val(); 
+    });
     this.advertisementProvider.initAdvertisement();
   }
 
-  goToPost(type, fab: FabContainer){
-    fab.close();
+  goToPost(type){
     this.navCtrl.push("NewPostPage",{type: type})
   }
 
