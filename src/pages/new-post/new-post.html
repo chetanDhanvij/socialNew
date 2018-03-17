@@ -1,0 +1,61 @@
+<!--
+  Generated template for the NewPostPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Post a Status</ion-title>
+    <ion-buttons end>
+      <button ion-button [disabled]="!(statusText != '' || imageDisplay != '')" (click)="submitPost()">
+        Post
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-bounce>
+  <ion-item *ngIf="postType == 'text'">
+    <ion-textarea class="post" text-center type="text" placeholder='Type in here' [(ngModel)]="statusText" [ngStyle]="{'background':selectedColor}"></ion-textarea>
+  </ion-item>
+
+  <section class="image-selection" *ngIf="postType == 'image'">
+    <ion-item>
+      <ion-textarea text-center type="text" placeholder='Photo discription' [(ngModel)]="imgText" ></ion-textarea>
+    </ion-item>
+    <img *ngIf="imageDisplay != ''" [src]="imageDisplay" class="selected-image">
+    <span *ngIf="imageDisplay == ''"> Please select an image </span>
+  </section>
+
+  <!-- <section *ngIf="postType == 'video'">
+      <ion-item>
+        <ion-label stacked>Paste Youtube video link here</ion-label>
+        <ion-input type="text" [(ngModel)]="video"></ion-input>
+        <ion-icon name="search" item-end (click)="sanitizeURL()"></ion-icon>
+      </ion-item>
+
+   <div *ngIf="video != ''">
+      <iframe width="auto" height="auto"
+      [src]="videoSanitized">
+    </iframe>
+   </div>
+
+  </section> -->
+
+</ion-content>
+
+<ion-footer *ngIf="postType == 'text'">
+  <ion-toolbar>
+    <ion-slides slidesPerView="7" #slides (ionSlideWillChange)="colorChanged()">
+      <ion-slide (click)="selectColor(color)" *ngFor="let color of colors">
+        <div [ngStyle]="{'background':color}" class="color-selector">
+          <!-- {{color}} -->
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-toolbar>
+</ion-footer>

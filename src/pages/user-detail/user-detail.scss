@@ -1,0 +1,30 @@
+page-user-detail {
+    .header-md::after {
+        height: 0px !important;
+    }
+    .profile-image{
+        padding-top: 41px;
+        background: color($colors,primary);
+        img{
+            height: 200px;
+            width: 200px;
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+        }
+        ion-item-divider{
+            text-align: center;
+            font-size: 35px;
+            ion-label{
+                color: color($colors,light) !important;
+            }
+
+            background: color($colors,primary);
+        }
+    }
+
+    ion-content{
+        background: #dfe6e9 !important;
+    }
+
+}
